@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang = "en" class = "no-js">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>The Lawrence</title>
+
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <!--google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&display=swap" rel="stylesheet">
+        <!--font awesome-->
+        <script src="https://kit.fontawesome.com/81040f564f.js" crossorigin="anonymous"></script>
+    </head>
+
+    
+    <body>
+        <!--header-->
+        <div class="header1" id="nav-1-header">
+            <ul class="top-nav">
+                <li class="dropdown">
+                  <a href="javascript:void(0)" class="dropbtn">Sections</a>
+                  <div class="dropdown-content">
+                    <a href="#">News</a>
+                    <a href="#">Opinions</a>
+                    <a href="#">Features</a>
+                  </div>
+                </li>
+                <li class="date"><p>Friday, April 8, 2022</p></li>
+                <li class="nav-item" style="float:right"><a href="#">Search</a>
+                <li class="nav-item" style="float:right"><a href="#">Archive</a>
+                <li class="nav-item" style="float:right"><a href="#">About</a>
+            </ul>
+        </div>
+
+        <div class="top-container">
+            <h1>The Lawrence</h1>
+            <p>The campus wide newspaper.</p>
+        </div>
+          
+        <div class="header2" id="nav-2-header">
+           <div class="nav-bar-centered">
+                <ul>
+                    <li class="nav-item"><a href="news.asp">News</a></li>
+                    <li class="nav-item"><a href="opinions.asp">Opinions</a></li>
+                    <li class="nav-item"><a href="features.asp">Features</a></li>
+                    <li class="nav-item"><a href="arts.asp">Arts</a></li>
+                    <li class="nav-item"><a href="sports.asp">Sports</a></li>
+                    <li class="nav-item"><a href="editorials.asp">Editorials</a></li>
+                    <li class="nav-item" style="float:left"><a href="issue.asp">Vol. CXLII No. 2</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="message">
+            <p>special message</p>
+        </div>
+        
+        <div class="content">
+            <!-- main front article -->
+            <div class="main-row">
+                <div class="main-column-left" >
+                    <article>
+                        <div>
+                            <a class="section" href="#">NEWS</a>
+                            <h2>Around the World and Back Again: International Night</h2>
+                            <h5>Nichole Jin ‘24</h5>
+                            <p>This past Saturday, the Office of Multicultural Affairs organized the annual International Night, which celebrates the diverse cultures across campus. Hosted on the Abbott Patio, the event featured affinity clubs setting up tables with cultural foods and games, a variety of snacks from around the world, and performances by both individual students and dance teams such as Suave, Nachale, and FroBeats</p>
+                            <h5 class="date">April 8, 2022</h5>
+                        </div>
+                        <img src="baby.jpg" alt="Baby">
+                    </article>
+                </div>
+                <div class="main-column-right" >
+                    <h2>Recent</h2>
+                    <article>
+                        <div>
+                            <a class="section" href="#">OPINIONS</a>
+                            <h3>Student Spotlight: Ashley Wang ’23</h3>
+                            <p>This past March, Ashley Wang ’23 won a Gold Medal at the 2022 Scholastic Art & Writing Awards for her poem “Rewind.”...</p>
+                        </div>
+                    </article>
+                    <article>
+                        <div>
+                            <a class="section" href="#">NEWS</a>
+                            <h3>Student Spotlight: Ashley Wang ’23</h3>
+                            <p>This past March, Ashley Wang ’23 won a Gold Medal at the 2022 Scholastic Art & Writing Awards for her poem “Rewind.” ...</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="secondary-row">
+                <div class="secondary-column-left" >
+                    <article>
+                        <div>
+                            <a class="section" href="#">NEWS</a>
+                            <h3>Around the World and Back Again: International Night</h3>
+                            <h5>Nichole Jin ‘24</h5>
+                            <p>This past Saturday, the Office of Multicultural Affairs organized the annual International Night, which celebrates the diverse cultures across campus. Hosted on the Abbott Patio, the event featured affinity clubs setting up tables with cultural foods and games, a variety of snacks from around the world, and performances by both individual students and dance teams such as Suave, Nachale, and FroBeats</p>
+                            <h5 class="date">April 8, 2022</h5>
+                        </div>
+                        <img src="baby.jpg" alt="Baby">
+                    </article>
+
+                    <article>
+                        <div>
+                            <a class="section" href="#">NEWS</a>
+                            <h3>Around the World and Back Again: International Night</h3>
+                            <h5>Nichole Jin ‘24</h5>
+                            <p>This past Saturday, the Office of Multicultural Affairs organized the annual International Night, which celebrates the diverse cultures across campus. Hosted on the Abbott Patio, the event featured affinity clubs setting up tables with cultural foods and games, a variety of snacks from around the world, and performances by both individual students and dance teams such as Suave, Nachale, and FroBeats</p>
+                            <h5 class="date">April 8, 2022</h5>
+                        </div>
+                        <img src="baby.jpg" alt="Baby">
+                    </article>
+                </div>
+                <div class="secondary-column-right" >
+                    <h2>Opinions</h2>
+                    
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            window.onscroll = function() {myFunction()};
+
+            var header1 = document.getElementById("nav-1-header");
+            var header2 = document.getElementById("nav-2-header");
+            var sticky2 = header2.offsetTop;
+            var sticky1 = header1.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset > sticky1+60) {
+                    header1.classList.add("sticky1");
+                } else {
+                    header1.classList.remove("sticky1");
+                }
+                if (window.pageYOffset > sticky2-60) {
+                    header2.classList.add("sticky2");
+                } else {
+                    header2.classList.remove("sticky2");
+                }
+            }
+        </script>
+
+    </body>
+</html>
