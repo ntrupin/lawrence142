@@ -1,0 +1,57 @@
+#macro(base $withHeader)
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preload" href="/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+        <noscript><link rel="stylesheet" href="/css/style.css" /></noscript>
+        <title>The Lawrence</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="The Lawrenceville School's weekly student-run publication." />
+    </head>
+    <body>
+        <div class="app">
+            #if($withHeader)
+            <ul class="header__menu">
+                <li class="header__menu__item dropdown">
+                  <a class="dropbtn">Sec</a>
+                  <div class="dropdown-content">
+                    <a href="#">News</a>
+                    <a href="#">Opinions</a>
+                    <a href="#">Features</a>
+                  </div>
+                </li>
+
+                <li class="header__menu__item">
+                    <a class="link--animate">Vol. CXLI No. 2</a>
+                </li>
+                <li class="header__menu__item">
+                    <a class="link--animate">About</a>
+                </li>
+                <li class="header__menu__item">
+                    <a class="link--animate" href="/pages/charter">Charter</a>
+                </li>
+                <li class="header__menu__item">
+                    <a class="link--animate" href="https://digitalarchives.lawrenceville.org/olive/apa/lawrenceville">Archives</a>
+                </li>
+            </ul>
+            <img class="header__logo" src="/images/lawrence.svg" />
+            <ul class="sections__menu">
+                <li class="sections__menu__item"><a class="link--animate">News</a></li>
+                <li class="sections__menu__item">Opinions</li>
+                <li class="sections__menu__item">Arts</li>
+                <li class="sections__menu__item">Features</li>
+                <li class="sections__menu__item">Sports</li>
+                <li class="sections__menu__item">Editorials</li>
+            </ul>
+            #end
+            <main>
+                $!bodyContent
+            </main>
+            <footer>
+                
+            </footer>
+        </div>
+    </body>
+</html>
+#end

@@ -1,0 +1,89 @@
+#parse("/templates/base.vm")
+#@base(true)
+<div class="frontpage">
+    <h1 class="sectionpage__title">News</h1>
+    <div class="sectionpage-head">
+        <div class="sectionpage-head-left">
+            <article>
+                <div class="main_article_image">
+                    <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    <p class="frontpage__article__caption">Courtesy of The Lawrenceville School</p>
+                </div>
+                <h1 class="frontpage__main__article__title">Learning Leadership in Uneasy Times</h1>
+                <div class="frontpage__article__source">
+                    <p class="frontpage__article__author">Autri Basu '23</p>
+                    <p class="frontpage__article__position">Editor-in-Chief</p>
+                </div>
+                <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+            </article>
+        </div>
+        <div class="sectionpage-head-middle">
+            <article>
+                <div class="main_article_image">
+                    <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    <p class="frontpage__article__caption">Courtesy of The Lawrenceville School</p>
+                </div>
+                <h1 class="frontpage__main__article__title">Learning Leadership in Uneasy Times</h1>
+                <div class="frontpage__article__source">
+                    <p class="frontpage__article__author">Autri Basu '23</p>
+                    <p class="frontpage__article__position">Editor-in-Chief</p>
+                </div>
+                <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+            </article>
+        </div>
+        <div class="sectionpage-head-right">
+            #foreach( $i in [1..2] )
+            <article class="sectionpage__article__section">
+                <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                <div class="frontpage__article__source">
+                    <p class="frontpage__article__author">Autri Basu '23</p>
+                    <p class="frontpage__article__position">Editor-in-Chief</p>
+                </div>
+                <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+            </article>
+            #end
+        </div>
+    </div>
+
+     <div class="frontpage-section">
+        <div class="frontpage__section__type2">
+        #foreach( $i in [1..4] )
+            <article class="frontpage__article__bySection">
+                <div class="frontpage__article__snip">
+                    <div class="main_article_texts">
+                        <h1 class="frontpage__snip__article__title">Learning Leadership in Uneasy Times</h1>
+                        <p class="frontpage__snip__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in</p>
+                    </div>
+                    <div class="snip_article_image">
+                        <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    </div>
+                </div>
+            </article>
+        #end
+        </div>
+    </div>
+
+    <div class="frontpage-section">
+    <h1>Latest</h1>
+        <div class="sectionpage-div">
+            #foreach( $i in [1..10] )
+                <article class="sectionpage__list__article">
+                    <div class="sectionpage_article_texts">
+                        <h3 class="frontpage__article__section">NEWS</h3>
+                        <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                        <div class="frontpage__article__source">
+                            <p class="frontpage__article__author">Autri Basu '23</p>
+                            <p class="frontpage__article__position">Editor-in-Chief</p>
+                            <p class="frontpage__article__date">April 22nd, 2022</p>
+                        </div>
+                    </div>
+                    <div class="sectionpage_article_image">
+                        <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    </div>
+                </article>
+            #end
+        </div>
+    </div>
+
+</div>
+#end

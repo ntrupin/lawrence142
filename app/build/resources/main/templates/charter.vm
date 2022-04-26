@@ -1,0 +1,11 @@
+#parse("/templates/base.vm")
+#@base(true)
+<div class="article">
+    <div class="article__header">
+        <h1 class="article__title"><i>The Lawrence</i> Charter</h1>
+    </div>
+    <div class="article__body">
+        
+    </div>
+</div>
+#end

@@ -1,0 +1,144 @@
+#parse("/templates/base.vm")
+#@base(true)
+<div class="frontpage">
+    <div class="frontpage-head">
+    
+        <div class="frontpage-head-left">
+            #foreach( $i in [1..2] )
+            <article class="frontpage__article__head__left">
+                <div class="main_article_texts">
+                    <h3 class="frontpage__article__section">NEWS</h3>
+                    <h1 class="frontpage__main__article__title">Learning Leadership in Uneasy Times</h1>
+                    <div class="frontpage__article__source">
+                        <p class="frontpage__article__author">Autri Basu '23</p>
+                        <p class="frontpage__article__position">Editor-in-Chief</p>
+                    </div>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </div>
+                <div class="main_article_image">
+                    <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    <p class="frontpage__article__caption">Courtesy of The Lawrenceville School</p>
+                </div>
+            </article>
+            #end
+        </div>
+        <div class="frontpage-head-right">
+            #foreach( $i in [1..3] )
+            <article class="frontpage__article__Section">
+                <div class="main_article_texts">
+                    <h3 class="frontpage__article__section">NEWS</h3>
+                    <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </div>
+            </article>
+            #end
+        </div>
+    </div>
+
+
+    <div class="frontpage-section">
+        <div class="frontpage__section__type2">
+        #foreach( $i in [1..4] )
+            <article class="frontpage__article__bySection">
+                <div class="frontpage__article__snip">
+                    <div class="main_article_texts">
+                        <h1 class="frontpage__snip__article__title">Learning Leadership in Uneasy Times</h1>
+                        <p class="frontpage__snip__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in</p>
+                    </div>
+                    <div class="snip_article_image">
+                        <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    </div>
+                </div>
+            </article>
+        #end
+        </div>
+    </div>
+
+    
+    <div class="frontpage-section">
+    <h1>News</h1>
+        <div class="frontpage__section__type1">
+            #foreach( $i in [1..4] )
+                <article class="frontpage__article__bySection">
+                    <h3 class="frontpage__article__section">NEWS</h3>
+                    <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                    <div class="frontpage__article__source">
+                        <p class="frontpage__article__author">Autri Basu '23</p>
+                        <p class="frontpage__article__position">Editor-in-Chief</p>
+                    </div>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </article>
+            #end
+        </div>
+    </div>
+
+    <div class="frontpage-section">
+        <h1>Opinions</h1>
+        <div class="frontpage__section__type1">
+            #foreach( $i in [1..4] )
+                <article class="frontpage__article__bySection">
+                    <h3 class="frontpage__article__section">OPINIONS</h3>
+                    <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                    <div class="frontpage__article__source">
+                        <p class="frontpage__article__author">Autri Basu '23</p>
+                        <p class="frontpage__article__position">Editor-in-Chief</p>
+                    </div>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </article>
+            #end
+        </div>
+    </div>
+
+    <div class="frontpage-section">
+        <h1>Features</h1>
+        <div class="frontpage__section__type1">
+            #foreach( $i in [1..4] )
+                <article class="frontpage__article__bySection">
+                    <h3 class="frontpage__article__section">OPINIONS</h3>
+                    <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                    <div class="frontpage__article__source">
+                        <p class="frontpage__article__author">Autri Basu '23</p>
+                        <p class="frontpage__article__position">Editor-in-Chief</p>
+                    </div>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </article>
+            #end
+        </div>
+    </div>
+
+    <div class="frontpage-section">
+        <h1>Arts</h1>
+        <div class="frontpage__section__type1">
+            #foreach( $i in [1..4] )
+                <article class="frontpage__article__bySection">
+                    <h3 class="frontpage__article__section">OPINIONS</h3>
+                    <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                    <div class="frontpage__article__source">
+                        <p class="frontpage__article__author">Autri Basu '23</p>
+                        <p class="frontpage__article__position">Editor-in-Chief</p>
+                    </div>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </article>
+            #end
+        </div>
+    </div>
+
+    <div class="frontpage-section">
+        <h1>Sports</h1>
+        <div class="frontpage__section__type1">
+            #foreach( $i in [1..4] )
+                <article class="frontpage__article__bySection">
+                    <h3 class="frontpage__article__section">OPINIONS</h3>
+                    <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                    <div class="frontpage__article__source">
+                        <p class="frontpage__article__author">Autri Basu '23</p>
+                        <p class="frontpage__article__position">Editor-in-Chief</p>
+                    </div>
+                    <p class="frontpage__article__brief">Dustin Thompson, an unemployed exterminator from Ohio, was the first defendant tried in the Capitol attack to offer a Trump-made-me-do-it defense before a jury.</p>
+                </article>
+            #end
+        </div>
+    </div>
+    
+</div>
+#end

@@ -1,0 +1,33 @@
+#parse("/templates/base.vm")
+#@base(true)
+<div class="frontpage">
+    <div class="authorpage-head">
+        <img class="author_profile_img" src="/images/profile_img.svg" />
+        <h1 class="sectionpage__title">Autri Basu '23</h1>
+        <p class="author_brief">Autri Basu is the best EIC.</p>
+        <p class="author_brief"> Contact the author at abasu23@lawrenceville.org </p>
+    </div>
+
+    <div class="frontpage-section">
+    <h1>Articles by this author</h1>
+        <div class="sectionpage-div">
+            #foreach( $i in [1..10] )
+                <article class="sectionpage__list__article">
+                    <div class="sectionpage_article_texts">
+                        <h3 class="frontpage__article__section">NEWS</h3>
+                        <h1 class="frontpage__section__article__title">Learning Leadership in Uneasy Times</h1>
+                        <div class="frontpage__article__source">
+                            <p class="frontpage__article__author">Autri Basu '23</p>
+                            <p class="frontpage__article__position">Editor-in-Chief</p>
+                            <p class="frontpage__article__date">April 22nd, 2022</p>
+                        </div>
+                    </div>
+                    <div class="sectionpage_article_image">
+                        <img src="https://static01.nyt.com/images/2022/04/13/us/politics/13dc-riot/merlin_182152074_81cadda7-17bf-4f33-97fe-172f7f39f0b7-superJumbo.jpg?quality=75&auto=webp" alt="Paris">
+                    </div>
+                </article>
+            #end
+        </div>
+    </div>
+</div>
+#end
