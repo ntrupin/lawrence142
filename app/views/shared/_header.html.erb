@@ -1,0 +1,59 @@
+<div class="container pt-3 sticky-top">
+  <header class="row border-bottom align-items-end">
+    <div class="d-md-none col-sm"></div>
+    <div class="d-md-block d-none col-sm text-start">
+      <p class="pb-4"><small><b><%= Time.now.strftime("%A, %B %-d") %></b></small></p>
+    </div>
+    <div class="col-lg-6 col-md-8 col-sm-10 col-12">
+      <a href="/" class="d-flex align-items-center link-dark text-decoration-none mb-0">
+        <img class="img-fluid" src="<%= image_path 'lawrence.svg' %>" /> 
+      </a>
+      <p class="mt-0 text-center"><small><b>The Lawrenceville School's weekly newspaper.</b></small></p>
+    </div>
+    <div class="d-md-none col-sm"></div>
+    <div class="d-md-block d-none col-sm text-end">
+      <p class="pb-4"><small><b><a href="#" class="link-dark text-decoration-none">Subscribe</a></b></small></p>
+    </div>
+  </header>
+  <div class="row border-bottom d-none d-md-flex">
+    <div class="d-lg-none col-sm"></div>
+    <ul class="nav justify-content-start d-lg-block d-none col-sm text-start font-weight-light text-uppercase">
+      <li class="nav-item border-right">
+        <small><a href="/masthead" class="nav-link link-dark text-decoration-none">Masthead</a></small>
+      </li>
+    </ul>
+    <ul class="col-lg-8 col-md-10 col-sm-10 col-12 nav justify-content-center font-weight-light text-uppercase navbar-expand-md">
+      <% ["News", "Opinions", "Features", "Arts", "Sports", "Editorials"].each do |section| %>
+        <li class="nav-item">
+          <small><a class="nav-link link-dark text-decoration-none" href="#"><%= section %></a></small>
+        </li>
+      <% end %>
+    </ul>
+    <div class="d-lg-none col-sm"></div>
+    <ul class="nav justify-content-end d-lg-block d-none col-sm text-end font-weight-light text-uppercase">
+      <li class="nav-item border-right">
+        <small><a href="/contact" class="nav-link link-dark text-decoration-none">Contact</a></small>
+      </li>
+    </ul>
+  </div>
+  <div class="accordion accordion-flush row border-bottom d-md-none d-flex" id="accordionFlushExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+          Menu
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="bg-default accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <ul class="nav flex-column">
+            <% ["News", "Opinions", "Features", "Arts", "Sports", "Editorials"].each do |section| %>
+              <li class="nav-item">
+                <small><a class="nav-link link-dark text-decoration-none" href="#"><%= section %></a></small>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

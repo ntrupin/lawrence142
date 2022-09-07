@@ -1,0 +1,11 @@
+<h1><%= @author.firstname %> <%= @author.lastname %></h1>
+
+<% if admin_signed_in? %>
+  <ul>
+    <li><%= link_to "Edit", edit_author_path(@author) %></li>
+    <li><%= button_to "Destroy", author_path(@author), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, :method => :delete %></li>
+  </ul>
+<% end %>

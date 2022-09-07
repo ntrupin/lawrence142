@@ -1,0 +1,15 @@
+<h1><%= @article.title %></h1>
+<% @article.authors.each do |author| %>
+  <p><small><b><%= author.fullname %> ’<%= author.gradyear.to_s[-2..-1] %> <%= author.position.length > 0 ? "(#{author.position})" : "" %></b></small> in <i><%= @article.section %></i> | <%= @article.published.strftime("%B %-d, %Y") %></p>
+<% end %>
+<p><%= @article.body %></p>
+
+<% if admin_signed_in? %>
+  <ul>
+    <li><%= link_to "Edit", edit_article_path(@article) %></li>
+    <li><%= button_to "Destroy", article_path(@article), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, :method => :delete %></li>
+  </ul>
+<% end %>

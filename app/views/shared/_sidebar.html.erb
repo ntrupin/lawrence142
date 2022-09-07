@@ -1,0 +1,14 @@
+<div class="container">
+  <hr />
+  <p class="ps-3"><b>Recent Articles</b></p>
+  <ul class="list-group list-group-flush">
+    <% Article.all.order(:published).reverse_order.take(5).each do |article| %>
+      <li class="list-group-item">
+        <a href="/articles/<%= article.id %>" class="link-dark text-decoration-none"><%= article.title %></a>
+        <small class="d-block"><%= article.authors %></small>
+      </li>
+    <% end %>
+  </ul>
+  <p></p>
+  <hr />
+</div>

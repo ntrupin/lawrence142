@@ -1,0 +1,98 @@
+<%= form_with model: article do |form| %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :title, class: "form-control", placeholder: "..." %>
+    <%= form.label :title, class: "form-label" %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3 d-none">
+    <%= form.collection_select(:author_ids, Author.all, :id, :fullname, {:prompt => true, :include_blank => false}, {class: "form-control", multiple: true, "data-live-search": true, id: "authors"}) %>
+    <%= form.label :author, class: "form-label" %>
+    <% article.errors.full_messages_for(:author).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <input class="form-control" id="pseudoInput" type="text" placeholder="...">
+    <label for="pseudoInput">Search</label>
+    <div style="overflow:scroll;height:200px;">
+      <table class="table table-sm">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Name</th>
+          </tr>
+        </thead>
+        <tbody id="pseudoTable">
+          <% Author.all.each do |author| %>
+            <tr>
+              <th scope="row">
+                <input class="form-check-input" type="checkbox" value="" data-id="<%= author.id %>" id="pseudoSelect" <%= @article.author_ids.include?(author.id) ? "checked='checked'" : "" %>>
+              </th>
+              <td><%= author.fullname %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body, class: "form-label" %>
+    <%= form.rich_text_area :body, class: "form-control" %>
+    <% article.errors.full_messages_for(:body).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :published, class: "form-label" %>
+    <%= form.date_field :published, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :status, class: "form-label" %>
+    <%= form.select :status, ["Public", "Private", "Archived"], selected: "Public", class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :section, class: "form-label" %>
+    <%= form.select :section, ["News", "Opinions", "Features", "Arts", "Sports", "Editorials"], selected: "News", class: "form-select" %>
+  </div>
+
+  <%= form.submit %>
+<% end %>
+<script>
+document.addEventListener("DOMContentLoaded", (event) => { 
+  const authors = document.querySelector("authors");
+  document.querySelectorAll("#pseudoInput").forEach((el) => {
+    el.addEventListener("keyup", (e) => {
+      console.log("HERE");
+      const trs = document.querySelectorAll("#pseudoTable tr:not(.header)")
+      const val = e.target.value;
+      const regex = new RegExp(val, "i");
+      const inTable = td => regex.test(td.innerHTML);
+      const isFound = cArr => cArr.some(inTable);
+      const setDisplay = ({ style, children }) => {
+        style.display = isFound([
+          ...children
+        ]) ? "" : "none"
+      }
+      trs.forEach(setDisplay);
+    });
+  });
+  document.querySelectorAll("#pseudoSelect").forEach((el) => {
+    el.addEventListener("change", (e) => {
+      const sel = document.querySelector(`#authors option[value="${e.target.dataset.id}"]`);
+      if (e.target.checked) {
+        sel.setAttribute("selected", "selected");
+      } else {
+        sel.removeAttribute("selected");
+      }
+    })
+  });
+});
+</script>

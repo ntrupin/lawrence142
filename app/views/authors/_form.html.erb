@@ -1,0 +1,35 @@
+<%= form_with model: author do |form| %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :firstname, class: "form-control", placeholder: "..." %>
+    <%= form.label :firstname, class: "form-label" %>
+    <% author.errors.full_messages_for(:firstname).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+    <div class="form-floating mb-3">
+    <%= form.text_field :lastname, class: "form-control", placeholder: "..." %>
+    <%= form.label :lastname, class: "form-label" %>
+    <% author.errors.full_messages_for(:lastname).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :position, class: "form-control", placeholder: "..." %>
+    <%= form.label :position, class: "form-label" %>
+    <% author.errors.full_messages_for(:position).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :gradyear, class: "form-control", type: "number", placeholder: "..." %>
+    <%= form.label "Graduation year", class: "form-label" %>
+    <% author.errors.full_messages_for(:position).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

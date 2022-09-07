@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Lawrence</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+  </head>
+
+  <body data-bs-spy="scroll">
+    <% if false %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+    <div class="container">
+      <div class="row">
+        <%= render "shared/header" %>
+      </div>
+      <div class="row">
+        <div class="col-12 col-lg-8 py-4 px-3 px-md-3 px-lg-5">
+          <%= yield %>
+        </div>
+        <div class="d-none d-lg-inline-block col-md-4">
+          <%= render "shared/sidebar" %>
+        </div>
+      </div>
+      <div class="row">
+        <%= render "shared/footer" %>
+      </div>
+    </div>
+    <% if admin_signed_in? %>
+      <ul class="p-3 fixed-bottom nav justify-content-end bg-light">
+        <li class="nav-item">
+          <%= link_to "New Author", new_author_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "New Article", new_article_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admins/sign_out">Sign out</a>
+        </li>
+      </ul>
+    <% end %>
+    <%= javascript_importmap_tags %>
+  </body>
+</html>
