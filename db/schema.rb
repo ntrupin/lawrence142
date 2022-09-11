@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_06_163821) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_09_154414) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -75,6 +75,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_06_163821) do
     t.string "section"
     t.date "published"
     t.integer "author_id"
+    t.string "image"
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 

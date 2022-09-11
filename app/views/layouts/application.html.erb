@@ -20,12 +20,16 @@
         <%= render "shared/header" %>
       </div>
       <div class="row">
-        <div class="col-12 col-lg-8 py-4 px-3 px-md-3 px-lg-5">
+        <% if not @home %>
+          <div class="col-12 col-lg-8 py-4 px-3 px-md-3 px-lg-5">
+            <%= yield %>
+          </div>
+          <div class="d-none d-lg-inline-block col-md-4">
+            <%= render "shared/sidebar" %>
+          </div>
+        <% else %>
           <%= yield %>
-        </div>
-        <div class="d-none d-lg-inline-block col-md-4">
-          <%= render "shared/sidebar" %>
-        </div>
+        <% end %>
       </div>
       <div class="row">
         <%= render "shared/footer" %>

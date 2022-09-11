@@ -12,10 +12,11 @@
     </div>
     <div class="d-md-none col-sm"></div>
     <div class="d-md-block d-none col-sm text-end">
-      <p class="pb-4"><small><b><a href="#" class="link-dark text-decoration-none">Subscribe</a></b></small></p>
+      <p class="pb-4"><small><b><a href="/subscribe" class="link-dark text-decoration-none">Subscribe</a></b></small></p>
     </div>
   </header>
-  <div class="row border-bottom d-none d-md-flex">
+  <div id="navproxy"></div>
+  <div id="navbar" class="row border-bottom d-none d-md-flex bg-white">
     <div class="d-lg-none col-sm"></div>
     <ul class="nav justify-content-start d-lg-block d-none col-sm text-start font-weight-light text-uppercase">
       <li class="nav-item border-right">
@@ -25,7 +26,7 @@
     <ul class="col-lg-8 col-md-10 col-sm-10 col-12 nav justify-content-center font-weight-light text-uppercase navbar-expand-md">
       <% ["News", "Opinions", "Features", "Arts", "Sports", "Editorials"].each do |section| %>
         <li class="nav-item">
-          <small><a class="nav-link link-dark text-decoration-none" href="#"><%= section %></a></small>
+          <small><a class="nav-link link-dark text-decoration-none" href="/sections/<%= section.downcase %>"><%= section %></a></small>
         </li>
       <% end %>
     </ul>
@@ -36,19 +37,20 @@
       </li>
     </ul>
   </div>
-  <div class="accordion accordion-flush row border-bottom d-md-none d-flex" id="accordionFlushExample">
+  <div id="accordionNavProxy"></div>
+  <div class="accordion accordion-flush row border-bottom d-md-none d-flex" id="accordionNav">
     <div class="accordion-item">
       <h2 class="accordion-header" id="flush-headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
           Menu
         </button>
       </h2>
-      <div id="flush-collapseOne" class="bg-default accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div id="flush-collapseOne" class="bg-default accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionNav">
         <div class="accordion-body">
           <ul class="nav flex-column">
             <% ["News", "Opinions", "Features", "Arts", "Sports", "Editorials"].each do |section| %>
               <li class="nav-item">
-                <small><a class="nav-link link-dark text-decoration-none" href="#"><%= section %></a></small>
+                <small><a class="nav-link link-dark text-decoration-none" href="/sections/<%= section.downcase %>"><%= section %></a></small>
               </li>
             <% end %>
           </ul>
@@ -57,3 +59,28 @@
     </div>
   </div>
 </div>
+<script>
+const scrollEvent = (elemSel, proxySel) => {
+  const elem = document.querySelector(elemSel);
+  const dims = elem.getBoundingClientRect();
+  const proxy = document.querySelector(proxySel);
+  const rect = proxy.getBoundingClientRect();
+  if (rect.top <= 0 && !elem.classList.contains("fixed-top")) {
+    const margin = dims.left
+    elem.classList.add("fixed-top");
+    elem.style.marginLeft = `${margin}px`;
+    elem.style.marginRight = `${margin}px`;
+    proxy.style.height = `${dims.bottom - dims.top}px`;
+  } else if (rect.top > 0 && elem.classList.contains("fixed-top")) {
+    elem.classList.remove("fixed-top");
+    elem.style.marginLeft = ``;
+    elem.style.marginRight = ``;
+    proxy.style.height = 0;
+  }
+};
+document.addEventListener("scroll", (event) => { 
+  scrollEvent("#navbar", "#navproxy");
+  scrollEvent("#accordionNav", "#accordionNavProxy")
+});
+//genEvent("#accordionNav", "#accordionNavProxy")
+</script>

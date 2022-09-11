@@ -3,7 +3,26 @@ class ArticlesController < ApplicationController
   before_action :authenticate_admin!, :except => [:index, :show]
 
   def index
-    @articles = Article.all
+    def fetch(section, count = 8)
+      return Article.where("section = \"#{section}\" and published <= ?", Date.today)
+        .order(published: :desc)
+        .limit(count) 
+    end
+    @home = true
+    @news = fetch("News")
+    @opinions = fetch("Opinions")
+    @features = fetch("Features")
+    @arts = fetch("Arts")
+    @sports = fetch("Sports")
+    @editorial = fetch("Editorials", 1)
+      .first
+  end
+
+  def section
+    @section = (params[:section]).capitalize
+    @articles = Article.where("section = \"#{@section}\" and published <= ?", Date.today)
+      .order(published: :desc)
+      .limit(100)
   end
 
   def show
@@ -45,8 +64,7 @@ class ArticlesController < ApplicationController
   end
 
   private
-
     def article_params
-      params.require(:article).permit(:title, :body, :published, :status, :section, author_ids: [])
+      params.require(:article).permit(:title, :body, :published, :status, :section, :image, author_ids: [])
     end
 end

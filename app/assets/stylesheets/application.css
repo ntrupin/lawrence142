@@ -15,6 +15,10 @@
  *= require bootstrap.min
  */
 
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
 div.field_with_errors {
   display: inline;
 }

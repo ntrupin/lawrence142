@@ -11,4 +11,5 @@ class Article < ApplicationRecord
   validates :section, inclusion: { in: VALID_SECTIONS }
 
   has_and_belongs_to_many :authors, join_table: :collaborations
+  has_one_attached :image
 end

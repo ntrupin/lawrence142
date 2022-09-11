@@ -16,4 +16,7 @@ class StaticController < ApplicationController
 
   def charter
   end
+
+  def subscribe
+  end
 end

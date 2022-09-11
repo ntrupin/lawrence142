@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     sessions: "admins/sessions"
   }
   root "articles#index"
+  get "/sections/:section", to: "articles#section"
+  get "articles/list", to: "articles#list"
   resources :articles
   resources :authors
   scope "/", controller: :static do

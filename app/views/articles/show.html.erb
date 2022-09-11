@@ -1,15 +1,21 @@
 <h1><%= @article.title %></h1>
-<% @article.authors.each do |author| %>
-  <p><small><b><%= author.fullname %> ’<%= author.gradyear.to_s[-2..-1] %> <%= author.position.length > 0 ? "(#{author.position})" : "" %></b></small> in <i><%= @article.section %></i> | <%= @article.published.strftime("%B %-d, %Y") %></p>
+<p>
+  <% @article.authors.each_with_index do |author, i| %>
+    <a href="<%= url_for author %>" class="text-decoration-none text-reset"><small><b><%= author.fullname %><%= author.gradyear.blank? ? "" : " ’#{author.gradyear.to_s[-2..-1]}" %></b><%= author.position.length > 0 ? " (#{author.position})" : "" %><%= (@article.authors.count > 2 and i != @article.authors.count - 1) ? ", " : "" %><%= (@article.authors.count > 1 and i == @article.authors.count - 2) ? " and " : "" %></small></a>
+  <% end %>
+  in <a href="/sections/<%= @article.section.downcase %>" class="text-decoration-none text-reset"><i><%= @article.section %></i></a> | <%= @article.published.strftime("%B %-d, %Y") %>
+</p>
+<% unless @article.image.blank? %>
+  <img class="img-fluid mx-0 px-0 pb-1" src="<%= url_for @article.image %>" />
 <% end %>
 <p><%= @article.body %></p>
 
 <% if admin_signed_in? %>
-  <ul>
-    <li><%= link_to "Edit", edit_article_path(@article) %></li>
-    <li><%= button_to "Destroy", article_path(@article), data: {
+  <div class="hstack gap-3">
+    <%= link_to "Edit", edit_article_path(@article) %>
+    <%= button_to "Destroy", article_path(@article), data: {
                       turbo_method: :delete,
                       turbo_confirm: "Are you sure?"
-                    }, :method => :delete %></li>
-  </ul>
+                    }, :method => :delete, class: "btn btn-link" %>
+  </div>
 <% end %>
