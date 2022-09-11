@@ -177,9 +177,26 @@
         </div>
       </div>
     </div>
-    <div class="container row col-12 col-lg-9">
+    <div class="container row col-12">
       <% [@news[4..-1], @opinions[4..-1], @sports[4..-1], @arts[3..-1], @features[1..-1]].flatten.shuffle.each do |article| %>
-        
+        <% unless article.nil? %>
+          <div class="pb-0 col-12 col-md-6 col-lg-4">
+            <a href="<%= url_for article %>" class="text-decoration-none text-reset">
+              <h5 class="mb-0"><%= article.title %></h5>
+            </a>
+            <p class="my-2">
+              <small>
+                <% article.authors.each_with_index do |author, i| %>
+                  <a href="<%= url_for author %>" class="text-decoration-none text-reset"><%= author.fullname %><%= author.gradyear.blank? ? "" : " ’#{author.gradyear.to_s[-2..-1]}" %></a><%= (article.authors.count > 2 and i != article.authors.count - 1) ? ", " : "" %><%= (article.authors.count > 1 and i == article.authors.count - 2) ? " and " : "" %>
+                <% end %>
+                | <b><%= article.section %></b>
+              </small>
+            </p>
+            <a href="<%= url_for article %>" class="text-decoration-none text-reset">
+              <p class="mt-1 lh-sm"><small><%= (lambda {|text| text.split[0...[text.length, 30].min].join(" ") }).call(article.body.to_plain_text) %>...</small></p>
+            </a>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

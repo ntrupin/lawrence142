@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate_admin!, :except => [:index, :show]
+  before_action :authenticate_admin!, :except => [:index, :show, :section]
 
   def index
     def fetch(section, count = 8)
@@ -27,6 +27,7 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+    @related = true
   end
 
   def new
