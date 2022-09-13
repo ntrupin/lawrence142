@@ -1,0 +1,24 @@
+<%= form_with model: issue do |form| %>
+  <div class="form-floating mb-3">
+    <%= form.text_field :name, class: "form-control", placeholder: "..." %>
+    <%= form.label :name, class: "form-label" %>
+    <% issue.errors.full_messages_for(:name).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :date, class: "form-label" %>
+    <%= form.date_field :date, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :pdf, class: "form-label" %>
+    <%= form.file_field :pdf, class: "form-control", accept: ".pdf" %>
+    <% issue.errors.full_messages_for(:pdf).each do |message| %>
+      <div class="invalid-feedback"><%= message %></div>
+    <% end %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

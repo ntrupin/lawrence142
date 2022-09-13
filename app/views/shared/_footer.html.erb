@@ -11,22 +11,24 @@
     <div class="col-6 mb-2 col-md-2">
       <b>Sections</b>
       <ul class="nav flex-column">
-        <li class="nav-item"><a href="" class="nav-link p-0 text-muted">News</a></li>
-        <li class="nav-item"><a href="#" class="nav-link p-0 text-muted">Opinions</a></li>
-        <li class="nav-item"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
-        <li class="nav-item"><a href="#" class="nav-link p-0 text-muted">Arts</a></li>
-        <li class="nav-item"><a href="#" class="nav-link p-0 text-muted">Sports</a></li>
-        <li class="nav-item"><a href="#" class="nav-link p-0 text-muted">Editorials</a></li>
+        <% ["News", "Opinions", "Features", "Arts", "Sports", "Editorials"].each do |section| %>
+          <li class="nav-item">
+            <a class="nav-link p-0 text-muted" href="/sections/<%= section.downcase %>"><%= section %></a>
+          </li>
+        <% end %>
+        <li class="nav-item"><a href="/issues" class="nav-link p-0 text-muted">Issues</a></li>
       </ul>
     </div>
 
     <div class="col-6 mb-2 col-md-2">
+      <b>Other</b>
       <ul class="nav flex-column">
         <li class="nav-item"><a href="/masthead" class="nav-link p-0 text-muted">Masthead</a></li>
         <li class="nav-item"><a href="/about" class="nav-link p-0 text-muted">About</a></li>
         <li class="nav-item"><a href="/contact" class="nav-link p-0 text-muted">Contact Us</a></li>
         <li class="nav-item"><a href="/charter" class="nav-link p-0 text-muted">Charter</a></li>
         <li class="nav-item"><a href="/subscribe" class="nav-link p-0 text-muted">Subscibe</a></li>
+        <li class="nav-item"><a href="/search" class="nav-link p-0 text-muted">Search</a></li>
         <li class="nav-item"><a href="/admins/sign_in" class="nav-link p-0 text-muted">Editor Login</a></li>
       </ul>
     </div>

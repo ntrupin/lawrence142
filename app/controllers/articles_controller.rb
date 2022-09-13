@@ -4,7 +4,8 @@ class ArticlesController < ApplicationController
 
   def index
     def fetch(section, count = 8)
-      return Article.where("section = \"#{section}\" and published <= ?", Date.today)
+      return Article.where(section: section)
+        .where('published <= ?', DateTime.now)
         .order(published: :desc)
         .limit(count) 
     end
@@ -20,7 +21,8 @@ class ArticlesController < ApplicationController
 
   def section
     @section = (params[:section]).capitalize
-    @articles = Article.where("section = \"#{@section}\" and published <= ?", Date.today)
+    @articles = Article.where(section: @section)
+      .where('published <= ?', DateTime.now)
       .order(published: :desc)
       .limit(100)
   end

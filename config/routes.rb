@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   root "articles#index"
   get "/sections/:section", to: "articles#section"
   get "articles/list", to: "articles#list"
+  get 'search', to: "search#index"
   resources :articles
   resources :authors
+  resources :issues
   scope "/", controller: :static do
     (StaticController.action_methods.to_a)
       .each do |action_method|

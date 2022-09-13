@@ -1,0 +1,9 @@
+<% if admin_signed_in? %>
+  <div class="hstack gap-3">
+    <%= link_to "Edit", edit_issue_path(@issue) %>
+    <%= button_to "Destroy", issue_path(@issue), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    }, :method => :delete, class: "btn btn-link" %>
+  </div>
+<% end %>

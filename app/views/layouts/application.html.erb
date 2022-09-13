@@ -38,6 +38,9 @@
     <% if admin_signed_in? %>
       <ul class="p-3 fixed-bottom nav justify-content-end bg-light">
         <li class="nav-item">
+          <%= link_to "New Issue", new_issue_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "New Author", new_author_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
