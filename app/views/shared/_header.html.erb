@@ -72,7 +72,7 @@
   </div>
 </div>
 <script>
-const scrollEvent = (elemSel, proxySel) => {
+const fixEvent = (elemSel, proxySel) => {
   const elem = document.querySelector(elemSel);
   const dims = elem.getBoundingClientRect();
   const proxy = document.querySelector(proxySel);
@@ -91,8 +91,8 @@ const scrollEvent = (elemSel, proxySel) => {
   }
 };
 document.addEventListener("scroll", (event) => { 
-  scrollEvent("#navbar", "#navproxy");
-  scrollEvent("#accordionNav", "#accordionNavProxy")
+  fixEvent("#navbar", "#navproxy");
+  fixEvent("#accordionNav", "#accordionNavProxy")
 });
 //genEvent("#accordionNav", "#accordionNavProxy")
 </script>
