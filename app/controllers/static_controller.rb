@@ -19,4 +19,7 @@ class StaticController < ApplicationController
 
   def subscribe
   end
+
+  def colophon
+  end
 end

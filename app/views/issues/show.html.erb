@@ -1,3 +1,19 @@
+<h1><%= @issue.name %></h1>
+<p class="mb-3">
+  <%= @issue.date.strftime("%B %-d, %Y") %>
+  | <a href="<%= url_for @issue.pdf %>" download="<%= url_for @issue.name %>">Download PDF</a>
+</p>
+<object id="pdf" class="w-100" data="<%= url_for @issue.pdf %>#toolbar=0&navpanes=0&scrollbar=0&statusbar=0&messages=0&scrollbar=0" type="application/pdf">
+  <div>No PDF viewer available</div>
+</object>
+<script>
+document.addEventListener("DOMContentLoaded", (event) => { 
+  const elem = document.querySelector("#pdf");
+  const dims = elem.getBoundingClientRect();
+  elem.style.height = `${(dims.right-dims.left)*1.55}px`;
+});
+</script>
+
 <% if admin_signed_in? %>
   <div class="hstack gap-3">
     <%= link_to "Edit", edit_issue_path(@issue) %>

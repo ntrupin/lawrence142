@@ -42,6 +42,13 @@
 
   <div class="mb-3">
     <%= form.label :image, class: "form-label" %>
+    <% if article.image.present? %>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div>
+          This entity already has an attachment associated with it. Uploading a new one will replace the existing one.
+        </div>
+      </div>
+    <% end %>
     <%= form.file_field :image, class: "form-control" %>
     <% article.errors.full_messages_for(:image).each do |message| %>
       <div class="invalid-feedback"><%= message %></div>

@@ -3,6 +3,7 @@ class IssuesController < ApplicationController
 
   def index
     @issue = Issue.all
+    .order(date: :desc)
   end
 
   def show

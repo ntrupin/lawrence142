@@ -13,7 +13,14 @@
   </div>
 
   <div class="mb-3">
-    <%= form.label :pdf, class: "form-label" %>
+    <%= form.label :pdf, class: "form-label text-uppercase" %>
+    <% if issue.pdf.present? %>
+      <div class="alert alert-danger d-flex align-items-center" role="alert">
+        <div>
+          This entity already has an attachment associated with it. Uploading a new one will replace the existing one.
+        </div>
+      </div>
+    <% end %>
     <%= form.file_field :pdf, class: "form-control", accept: ".pdf" %>
     <% issue.errors.full_messages_for(:pdf).each do |message| %>
       <div class="invalid-feedback"><%= message %></div>
