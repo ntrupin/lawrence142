@@ -1,8 +1,8 @@
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap.bundle.min.js
-//= require masonry.min.js
-//= require_self
+//= require popper
+//= require bootstrap
+//= require_tree .
 
 import "trix"
 import "@rails/actiontext"

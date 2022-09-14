@@ -75,3 +75,5 @@ gem "jquery-rails"
 gem "aws-sdk-s3"
 
 gem "pg"
+
+gem 'bootstrap', '~> 5.2.0'
