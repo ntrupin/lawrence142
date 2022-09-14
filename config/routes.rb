@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "/sections/:section", to: "articles#section"
   get "articles/list", to: "articles#list"
   get 'search', to: "search#index"
+  get "issues/latest", to: "issues#latest"
   resources :articles
   resources :authors
   resources :issues

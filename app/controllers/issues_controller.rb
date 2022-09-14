@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  before_action :authenticate_admin!, :except => [:index, :show]
+  before_action :authenticate_admin!, :except => [:index, :show, :latest]
 
   def index
     @issue = Issue.all
@@ -42,6 +42,13 @@ class IssuesController < ApplicationController
     @issue.destroy
 
     redirect_to root_path, status: :see_other
+  end
+
+  def latest
+    @issue = Issue.where('date <= ?', DateTime.now)
+      .order(date: :desc)
+      .first
+    redirect_to @issue
   end
 
   private
