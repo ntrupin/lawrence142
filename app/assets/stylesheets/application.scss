@@ -12,9 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
  */
 
- @import "bootstrap";
+/* @import "bootstrap";*/
 
 body {
   font-family: Georgia, 'Times New Roman', Times, serif !important;

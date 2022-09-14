@@ -1,7 +1,8 @@
 //= require jquery
 //= require jquery_ujs
-//= require popper
-//= require bootstrap
+//= require bootstrap.bundle.min
 
+import "@hotwired/turbo-rails"
+import "controllers"
 import "trix"
 import "@rails/actiontext"
