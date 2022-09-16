@@ -15,6 +15,7 @@ class IssuesController < ApplicationController
   end
 
   def create
+    issue_params[:id] = Issue.count + 1
     @issue = Issue.new(issue_params)
     if @issue.save
         redirect_to @issue
