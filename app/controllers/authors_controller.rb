@@ -14,7 +14,6 @@ class AuthorsController < ApplicationController
   end
 
   def create
-    author_params[:id] = Author.count + 1
     @author = Author.new(author_params)
     if @author.save
         redirect_to @author
