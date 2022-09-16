@@ -7,7 +7,7 @@ class SearchController < ApplicationController
     @query = params[:query]
     case params[:type]
     when "articles"
-      @articles = Article.where("lower(title) like ? or ", clean)
+      @articles = Article.where("lower(title) like ?", clean)
     when "authors"
       @authors = Author.where("lower(firstname) like ? or lower(lastname) like ?", clean, clean)
     else 
