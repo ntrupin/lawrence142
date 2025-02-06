@@ -7,6 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <% if Rails.env.production? %>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-2QKWP06MCT"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2QKWP06MCT');
+      </script>
+    <% end %>
   </head>
 
   <body data-bs-spy="scroll">
@@ -50,6 +61,19 @@
         </li>
       </ul>
     <% end %>
+
+    <% if Rails.env.production? %>
+      <script>
+        document.addEventListener('turbolinks:load', function() {
+          if (typeof gtag === 'function') {
+            gtag('config', 'G-2QKWP06MCT', {
+              'page_path': window.location.pathname
+            });
+          }
+        });
+      </script>
+    <% end %>
+
     <%= javascript_importmap_tags %>
   </body>
 </html>
